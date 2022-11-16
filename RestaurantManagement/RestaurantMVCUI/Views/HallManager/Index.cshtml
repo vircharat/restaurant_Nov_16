@@ -1,0 +1,62 @@
+﻿@model IEnumerable<RestaurantEntity.HallTable>
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutHallManager.cshtml";
+
+}
+<div>
+    <a asp-controller="Employee" asp-action="Index" class="btn btn-primary">Employee Section</a>
+    &nbsp;
+    <a asp-controller="Bill" asp-action="View" class="btn btn-primary"> Accept Paid Bill</a>
+
+    <hr />
+</div>
+
+
+
+
+<body style="background-color:black">
+    <center>
+        <h2 class ="text-light text-center">Index of Hall Manager</h2>
+    <div>
+
+
+        <div class=" row">
+
+            @foreach (var hallTable in Model)
+            {
+              
+
+                <div class="col-md-3">
+
+                    <div class="col-md-3">
+                        @if (hallTable.HallTableStatus == false)
+                        {
+                                <p class="square rounded p-5" style="background-color:green;width:100px">No:@hallTable.HallTableId</p>
+                                <div class ="text-light text-center">Occupancy :@hallTable.HallTableSize</div>
+                        }
+                        else
+                        {
+                        <p class="square rounded p-5" style="background-color:red;width:100px">@hallTable.HallTableSize</p>
+                        }
+                        
+                    </div>
+                    <br />
+                </div>
+              
+
+
+            }
+
+        </div>
+
+    </div>
+     </center>
+</body>
+
+
+
+
+
